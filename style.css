@@ -60,7 +60,14 @@ button:hover{
 
 h1.temp{
     margin: 0;
-    margin-bottom: 4em;
+    margin-bottom: 0.4em;
 }
-
+.flex{
+    display: flex;
+    align-items: center;
+}
+.description{
+    text-transform: capitalize;
+    margin-left: 8px;
+}
 
