@@ -19,6 +19,8 @@ let weather = {
         const { temp, humidity } = data.main;
         const { speed } = data.wind;
         console.log(name,icon,description,temp,humidity,speed);
+        const timezoneOffset = data.timezone; //seconds
+        
 
         document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector(".icon").src =
@@ -28,6 +30,24 @@ let weather = {
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed+" km/h";
         
+        const  localTime = new Date(Date.now() +timezoneOffset * 1000);
+        let hours = localTime.getUTCHours().toString().padStart(2,"0");
+        let  minutes = localTime.getUTCMinutes().toString().padStart(2,"0");
+       
+       
+        //time am-pm
+
+        let ampm
+        if(hours >= 12) {
+        ampm = "PM"
+        } else {ampm = "AM"}
+
+        hours = hours %12;
+        if(hours === 0) {
+          hours = 12;
+        }
+        document.querySelector(".time").innerText = `Local Time: ${hours}:${minutes} ${ampm} `;
+
     document.querySelector(".weather").classList.remove("loading");
     document.body.style.backgroundImage =
       "url('https://source.unsplash.com/1600x900/?" + name + "')";
@@ -37,6 +57,7 @@ let weather = {
    },
     
 };
+
 
 document.querySelector(".search button").addEventListener("click", function () {
 
@@ -51,4 +72,5 @@ document.querySelector(".search-bar").addEventListener("keyup", function (event)
 });
 
 
-weather.fetchWeather("Denver");
+weather.fetchWeather("Santo Domingo");
+
