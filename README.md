@@ -36,11 +36,6 @@ A simple web application that shows the current weather of any city, the local t
   - [Unsplash](https://unsplash.com/developers) – for dynamic background images
   - [Picsum](https://picsum.photos/) – fallback background images
 
-## Setup Instructions
-
-1. Clone the repository:
-   ```bash
-git clone https://github.com/your-username/weather-app.git
 
 
 ```bash
